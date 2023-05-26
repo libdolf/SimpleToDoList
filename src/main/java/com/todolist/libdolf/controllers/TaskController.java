@@ -16,21 +16,21 @@ public class TaskController {
     public ResponseEntity<List<Task>> getAll(){
         return ResponseEntity.ok(taskService.getAllTasks());
     }
-//    @GetMapping(value = "/complete")
-//    public ResponseEntity<List<Task>> getAllCompleteTask(){
-//        return ResponseEntity.ok(taskService.allCompletedTasks());
-//    }
-//    @GetMapping(value = "/incomplete")
-//    public ResponseEntity<List<Task>> getAllIncompleteTask(){
-//        return ResponseEntity.ok(taskService.allIncompleteTasks());
-//    }
+    @GetMapping(value = "/complete")
+    public ResponseEntity<List<Task>> getAllCompleteTask(){
+        return ResponseEntity.ok(taskService.allCompletedTasks());
+    }
+    @GetMapping(value = "/incomplete")
+    public ResponseEntity<List<Task>> getAllIncompleteTask(){
+        return ResponseEntity.ok(taskService.allIncompleteTasks());
+    }
     @PostMapping(value = "/")
     public ResponseEntity<Task> createNewTask(@RequestBody Task task){
         return ResponseEntity.ok(taskService.createNewTask(task));
     }
     @PutMapping(value = "/{id}")
     public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody Task task){
-        return ResponseEntity.ok(taskService.updateTask(task));
+        return ResponseEntity.ok(taskService.updateTask(task,id));
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Boolean> deleteTask(@PathVariable Long id){
