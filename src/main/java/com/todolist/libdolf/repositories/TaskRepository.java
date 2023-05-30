@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
-    @Query(value = "SELECT e FROM Task e WHERE e.complete = true")
-    List<Task> findByCompletedTrue();
-
-    @Query(value = "SELECT t FROM Task t WHERE t.complete = false")
-    public List<Task> findByCompletedFalse();
+    List<Task> findByCompleteTrue();
+    List<Task> findByCompleteFalse();
 }

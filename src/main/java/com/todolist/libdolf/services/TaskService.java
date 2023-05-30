@@ -4,7 +4,6 @@ import com.todolist.libdolf.repositories.TaskRepository;
 import com.todolist.libdolf.models.Task;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,11 +24,12 @@ public class TaskService {
          return taskRepository.findById(id);
      }
      public List<Task> allCompletedTasks(){
-         return taskRepository.findByCompletedTrue();
+         return taskRepository.findByCompleteTrue();
     }
      public List<Task> allIncompleteTasks(){
-         return taskRepository.findByCompletedFalse();
+         return taskRepository.findByCompleteFalse();
      }
+
      public void deleteTask(Long id){
          taskRepository.deleteById(id);
      }
